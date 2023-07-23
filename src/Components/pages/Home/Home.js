@@ -1,8 +1,74 @@
 import React from "react";
-
+import { useState, useEffect } from "react";
+import axios from "axios";
+import CoinStatsCard from "../../coinStatCard/coinStatCard";
+import { Sparklines, SparklinesLine } from "react-sparklines";
+import { MainHomeDiv, HomeCoinsDiv } from "../../../styledComponents/index.style";
+import ClipLoader from "react-spinners/ClipLoader";
 const HomeFunc = () => {
+    const [coinStats, setCoinStats] = useState([])
+    const [loading, setLoading] = useState(true);
+    const options = {
+        method: 'GET',
+        url: 'https://coinranking1.p.rapidapi.com/coins',
+        params: {
+          referenceCurrencyUuid: 'yhjMzLPhuIDl',
+          timePeriod: '24h',
+          'tiers[0]': '1',
+          orderBy: 'marketCap',
+          orderDirection: 'desc',
+          limit: '50',
+          offset: '0'
+        },
+        headers: {
+          'X-RapidAPI-Key': '3b19298a97mshc8c02c752874df7p11a258jsnd1e9799fa782',
+          'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
+        }
+      };
+      const getDataCoinStats = () => {
+        setLoading(true);
+        axios.request(options).then(function (response) {
+          setCoinStats(response.data.data);
+          setLoading(false);
+        });
+      }
+
+
+
+      useEffect(() => {
+        getDataCoinStats();
+      }, []);
+      console.log(coinStats);
     return(
-        <h1>Home</h1>
+        <MainHomeDiv>
+            {loading ? (
+      <>
+        <ClipLoader color={"#ef6e6e"} size={45} />
+        <h1 className="text-lg text-red-900">
+          Loading data from covid-19 api.
+        </h1>
+      </>
+    ) : (
+        <> 
+        
+        {coinStats.coins.slice(0, 10).map((el) => (
+            <CoinStatsCard 
+            coinRank={el.rank}
+            coinImage={el.iconUrl}
+            coinName={el.name}
+            coinPrice={el.price}
+            coin24hVolume={el['24hVolume']}
+            coinMarketCap={el.marketCap}
+            sparkline={el.sparkline.map((el) => el)}
+            />
+       ))
+    
+    
+    
+    }
+     </>
+    )}
+        </MainHomeDiv>
     )
 }
 export default HomeFunc
