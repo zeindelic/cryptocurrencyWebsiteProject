@@ -45,31 +45,48 @@ margin: 0;
 
 `;
 export const HomeCoinsDiv = styled.div`
+padding: 10px;
+border-bottom: 0.7px solid lightgray;
 display: flex;
 align-items: center;
 flex-direction: row;
 justify-content: space-between;
 width: 80%;
-padding: 0;
 margin: 0;
 margin-top: 20px;
 
 img{
+    height: 50px;
     width: 50px;
+}
+h2{
+    width: 20px;
+font-size: 15px;
+font-style: italic;
+}
+h4{
+    width: 20px;
+font-size: 15px;
+font-weight: 400;
+}
+h3{
+    width: 20px;
+font-size: 15px;
+font-weight: 400;
+font-style: italic;
 }
 
 h1{
+   width: 20px;
 font-size: 15px;
-font-weight: 400;
+font-weight: 700;
 
 
 }
-{
-   
-    
-}
+
 svg{
     width: 10%;
+    margin-left: 20px;
 }
 `;
 

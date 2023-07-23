@@ -4,6 +4,8 @@ import axios from "axios";
 import CoinStatsCard from "../../coinStatCard/coinStatCard";
 import { Sparklines, SparklinesLine } from "react-sparklines";
 import { MainHomeDiv, HomeCoinsDiv } from "../../../styledComponents/index.style";
+import { BsHeart } from 'react-icons/bs'
+
 import ClipLoader from "react-spinners/ClipLoader";
 const HomeFunc = () => {
     const [coinStats, setCoinStats] = useState([])
@@ -50,7 +52,19 @@ const HomeFunc = () => {
       </>
     ) : (
         <> 
-        
+        <HomeCoinsDiv>
+        <h2>Rank</h2>
+        <h2></h2>
+        <h2>name</h2>
+        <h2>price</h2>
+        <h2>24hVolume</h2>
+        <h2>MarketCap</h2>
+        <h2></h2>
+        <h2></h2>
+        <h2></h2>
+    </HomeCoinsDiv>
+    
+
         {coinStats.coins.slice(0, 10).map((el) => (
             <CoinStatsCard 
             coinRank={el.rank}

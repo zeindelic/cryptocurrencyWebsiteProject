@@ -1,5 +1,7 @@
 import { HomeCoinsDiv } from "../../styledComponents/index.style"
 import React from "react"
+import { BsHeart } from 'react-icons/bs'
+import { AiFillCalculator } from 'react-icons/ai'
 import { Sparklines, SparklinesLine } from "react-sparklines";
 
 const CoinStatsCard = ({
@@ -12,19 +14,22 @@ coinMarketCap,
 sparkline,
 
 }) => {
+    
 
-   const newCoinPrice = coinPrice.toLocaleString()
     return(
+    
       <HomeCoinsDiv>
-            <h1>{coinRank}</h1>
-            <img src={coinImage}/>
-            <h1 className="coinName">{coinName}</h1>
+            <h4>{coinRank}</h4>
+            <img  src={coinImage}/>
+            <h3 className="coinName">{coinName}</h3>
             <h1>${Number(coinPrice).toLocaleString()}</h1>
             <h1>${Number(coin24hVolume).toLocaleString()}</h1>
             <h1>${Number(coinMarketCap).toLocaleString()}</h1>
             <Sparklines data={sparkline.map((el) => el)}>
-            <SparklinesLine color="blue" />
+            <SparklinesLine className='sparkline' color="blue" />
           </Sparklines>
+            <BsHeart onClick={console.log('fortnite')}/> 
+
       </HomeCoinsDiv>  
     )
 }
