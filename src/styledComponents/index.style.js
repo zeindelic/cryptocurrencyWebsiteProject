@@ -33,6 +33,45 @@ height: 76%;
   font-size: 16px;
   font-weight: 500;
 `;
+export const MainHomeDiv = styled.div`
+width: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 0;
+margin: 0;
+
+
+`;
+export const HomeCoinsDiv = styled.div`
+display: flex;
+align-items: center;
+flex-direction: row;
+justify-content: space-between;
+width: 80%;
+padding: 0;
+margin: 0;
+margin-top: 20px;
+
+img{
+    width: 50px;
+}
+
+h1{
+font-size: 15px;
+font-weight: 400;
+
+
+}
+{
+   
+    
+}
+svg{
+    width: 10%;
+}
+`;
 
 export const UserDiv = styled.div`
 margin-right: 20px;
