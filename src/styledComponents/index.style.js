@@ -77,7 +77,7 @@ font-style: italic;
 }
 
 h1{
-   width: 20px;
+   width: 80px;
 font-size: 15px;
 font-weight: 700;
 

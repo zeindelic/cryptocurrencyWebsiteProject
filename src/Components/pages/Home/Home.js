@@ -10,6 +10,8 @@ import ClipLoader from "react-spinners/ClipLoader";
 const HomeFunc = () => {
     const [coinStats, setCoinStats] = useState([])
     const [loading, setLoading] = useState(true);
+    const [value, setValue] = useState('')
+
     const options = {
         method: 'GET',
         url: 'https://coinranking1.p.rapidapi.com/coins',
@@ -41,6 +43,7 @@ const HomeFunc = () => {
         getDataCoinStats();
       }, []);
       console.log(coinStats);
+      console.log(value);
     return(
         <MainHomeDiv>
             {loading ? (
@@ -51,7 +54,13 @@ const HomeFunc = () => {
         </h1>
       </>
     ) : (
+       
         <> 
+        <input 
+        type="text"
+        value={value} 
+        onChange={e => setValue(e.target.value)} 
+      />
         <HomeCoinsDiv>
         <h2>Rank</h2>
         <h2></h2>
@@ -65,7 +74,15 @@ const HomeFunc = () => {
     </HomeCoinsDiv>
     
 
-        {coinStats.coins.slice(0, 10).map((el) => (
+        {coinStats.coins.filter(coin => {
+            if (!value) return true
+            if (coin.name.includes(value)   || coin.symbol.includes(value)) {
+                return true
+            }
+            
+            
+        })
+        .slice(0, 10).map((el) => (
             <CoinStatsCard 
             coinRank={el.rank}
             coinImage={el.iconUrl}
@@ -74,6 +91,7 @@ const HomeFunc = () => {
             coin24hVolume={el['24hVolume']}
             coinMarketCap={el.marketCap}
             sparkline={el.sparkline.map((el) => el)}
+            coinData={el}
             />
        ))
     
