@@ -33,6 +33,62 @@ height: 76%;
   font-size: 16px;
   font-weight: 500;
 `;
+export const MainHomeDiv = styled.div`
+width: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 0;
+margin: 0;
+
+
+`;
+export const HomeCoinsDiv = styled.div`
+padding: 10px;
+border-bottom: 0.7px solid lightgray;
+display: flex;
+align-items: center;
+flex-direction: row;
+justify-content: space-between;
+width: 80%;
+margin: 0;
+margin-top: 20px;
+
+img{
+    height: 50px;
+    width: 50px;
+}
+h2{
+    width: 20px;
+font-size: 15px;
+font-style: italic;
+}
+h4{
+    width: 20px;
+font-size: 15px;
+font-weight: 400;
+}
+h3{
+    width: 20px;
+font-size: 15px;
+font-weight: 400;
+font-style: italic;
+}
+
+h1{
+   width: 80px;
+font-size: 15px;
+font-weight: 700;
+
+
+}
+
+svg{
+    width: 10%;
+    margin-left: 20px;
+}
+`;
 
 export const UserDiv = styled.div`
 margin-right: 20px;
