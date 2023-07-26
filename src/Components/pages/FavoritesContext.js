@@ -9,17 +9,6 @@ export const useFavorites = () => {
 export const FavoritesProvider = ({ children }) => {
   const [favoriteCoins, setFavoriteCoins] = useState(new Set());
 
-  useEffect(() => {
-    const storedFavorites = localStorage.getItem("favorites");
-    if (storedFavorites) {
-      setFavoriteCoins(new Set(JSON.parse(storedFavorites)));
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("favorites", JSON.stringify(Array.from(favoriteCoins)));
-  }, [favoriteCoins]);
-
   const addFavorite = (coin) => {
     setFavoriteCoins((prevFavorites) => new Set([...prevFavorites, coin]));
   };
@@ -41,9 +30,9 @@ export const FavoritesProvider = ({ children }) => {
     addFavorite,
     removeFavorite,
     isFavorite,
-    
   };
-  console.log(value)
+  
+  console.log("Favorite Coins:", value.favorites);
 
   return <FavoritesContext.Provider value={value}>{children}</FavoritesContext.Provider>;
 };
