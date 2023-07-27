@@ -14,7 +14,7 @@ const CoinsFunc = () => {
   const [coinNames, setCoinNames] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
-  const coinsPerPage = 20;
+  const coinsPerPage = 10;
 
   useEffect(() => {
     fetchCoinsData();
