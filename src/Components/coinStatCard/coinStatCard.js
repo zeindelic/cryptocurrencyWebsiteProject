@@ -30,7 +30,13 @@ coinData,
             <Sparklines data={sparkline.map((el) => el)}>
             <SparklinesLine className='sparkline' color="blue" />
           </Sparklines>
-            <BsHeart onClick={console.log('fortnite')}/> 
+          <button
+              className="coin_button_favorite"
+              onClick={() => handleFavoriteClick(coin)}
+              style={{ color: isFavorite(coin) ? "#ff0000" : "#9ca3af" }}
+            >
+              <FontAwesomeIcon icon={faHeart} style={{ height: "20px" }} />
+            </button>
             <CalcModal coinData={coinData}/>
 
       </HomeCoinsDiv>  

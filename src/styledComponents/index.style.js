@@ -85,7 +85,7 @@ font-weight: 700;
 }
 
 svg{
-    width: 10%;
+    width: 15%;
     margin-left: 20px;
 }
 `;
