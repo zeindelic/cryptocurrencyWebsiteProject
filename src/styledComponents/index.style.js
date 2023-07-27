@@ -2,6 +2,9 @@ import styled from "styled-components";
 
 export const HeaderContainer = styled.div`
 background-color: rgb(0, 5, 59);
+position: fixed;
+top: 0;
+z-index: 20;
   width: 100%;
   height: 13vh;
   display: flex;
@@ -44,6 +47,13 @@ margin: 0;
 
 
 `;
+export const Nameloc = styled.h2`
+margin-left: 50px;
+font-size: 15px;
+font-style: italic;
+
+
+`;
 export const HomeCoinsDiv = styled.div`
 padding: 10px;
 border-bottom: 0.7px solid lightgray;
@@ -51,7 +61,7 @@ display: flex;
 align-items: center;
 flex-direction: row;
 justify-content: space-between;
-width: 80%;
+width: 90%;
 margin: 0;
 margin-top: 20px;
 
@@ -59,8 +69,10 @@ img{
     height: 50px;
     width: 50px;
 }
+
 h2{
     width: 20px;
+    margin-right: 100px;
 font-size: 15px;
 font-style: italic;
 }
@@ -79,6 +91,7 @@ font-style: italic;
 h1{
    width: 80px;
 font-size: 15px;
+margin-right: 15px;
 font-weight: 700;
 
 

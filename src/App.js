@@ -1,5 +1,6 @@
 import './App.css';
 import { Route, Routes } from 'react-router';
+import Footer from './Components/footer/footer';
 import Header from './Components/header/header';
 import CoinsFunc from './Components/pages/Coins/Coins';
 import AboutUsFunc from './Components/pages/AboutUs/aboutUs';
@@ -21,6 +22,7 @@ function App() {
         <Route path="/coins/:uuid/*" element={<CryptoDetailsPage />} />
         <Route path='/user' element={<UserFunc />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

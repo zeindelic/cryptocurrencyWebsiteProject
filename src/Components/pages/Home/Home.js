@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import CoinStatsCard from "../../coinStatCard/coinStatCard";
 import { Sparklines, SparklinesLine } from "react-sparklines";
-import { MainHomeDiv, HomeCoinsDiv } from "../../../styledComponents/index.style";
+import { MainHomeDiv, HomeCoinsDiv,Nameloc } from "../../../styledComponents/index.style";
 import { BsHeart } from 'react-icons/bs'
 
 
@@ -64,8 +64,7 @@ const HomeFunc = () => {
       />
         <HomeCoinsDiv>
         <h2>Rank</h2>
-        <h2></h2>
-        <h2>name</h2>
+        <Nameloc>name</Nameloc>
         <h2>price</h2>
         <h2>24hVolume</h2>
         <h2>MarketCap</h2>

@@ -6,6 +6,9 @@ import CalculateIcon from '@mui/icons-material/Calculate';
 import CalcModal from "../calcModal/calcmodal";
 import { Sparklines, SparklinesLine } from "react-sparklines";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart, faSearch } from "@fortawesome/free-solid-svg-icons";
+
 const CoinStatsCard = ({
   coinRank,
   coinImage,
@@ -29,7 +32,12 @@ const CoinStatsCard = ({
       <Sparklines data={sparkline.map((el) => el)}>
         <SparklinesLine className='sparkline' color="blue" />
       </Sparklines>
-      <BsHeart onClick={console.log('fortnite')} />
+      <button
+              className="coin_button_favorite"
+            >
+              <FontAwesomeIcon icon={faHeart} style={{ height: "20px" }} />
+            </button>
+      
       <CalcModal coinData={coinData} />
     </HomeCoinsDiv>
   )
