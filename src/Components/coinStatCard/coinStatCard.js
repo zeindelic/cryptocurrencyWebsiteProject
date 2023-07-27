@@ -1,39 +1,39 @@
-import { HomeCoinsDiv } from "../../styledComponents/index.style"
-import React from "react"
-import { BsHeart } from 'react-icons/bs'
+import { Link } from "react-router-dom";
+import { HomeCoinsDiv } from "../../styledComponents/index.style";
+import React from "react";
+import { BsHeart } from 'react-icons/bs';
 import CalculateIcon from '@mui/icons-material/Calculate';
 import CalcModal from "../calcModal/calcmodal";
 import { Sparklines, SparklinesLine } from "react-sparklines";
 
 const CoinStatsCard = ({
-coinRank,
-coinImage,
-coinName,
-coinPrice,
-coin24hVolume,
-coinMarketCap,
-sparkline,
-coinData,
-
+  coinRank,
+  coinImage,
+  coinName,
+  coinPrice,
+  coin24hVolume,
+  coinMarketCap,
+  sparkline,
+  coinData,
 }) => {
-    
 
-    return(
-    
-      <HomeCoinsDiv>
-            <h4>{coinRank}</h4>
-            <img  src={coinImage}/>
-            <h3 className="coinName">{coinName}</h3>
-            <h1>${Number(coinPrice).toLocaleString()}</h1>
-            <h1>${Number(coin24hVolume).toLocaleString()}</h1>
-            <h1>${Number(coinMarketCap).toLocaleString()}</h1>
-            <Sparklines data={sparkline.map((el) => el)}>
-            <SparklinesLine className='sparkline' color="blue" />
-          </Sparklines>
-            <BsHeart onClick={console.log('fortnite')}/> 
-            <CalcModal coinData={coinData}/>
+  return (
+    <HomeCoinsDiv>
+      <h4>{coinRank}</h4>
+      <Link to={`/coins/${coinData.uuid}`}> 
+        <img src={coinImage} alt={coinName} />
+      </Link>
+      <h3 className="coinName">{coinName}</h3>
+      <h1>${Number(coinPrice).toLocaleString()}</h1>
+      <h1>${Number(coin24hVolume).toLocaleString()}</h1>
+      <h1>${Number(coinMarketCap).toLocaleString()}</h1>
+      <Sparklines data={sparkline.map((el) => el)}>
+        <SparklinesLine className='sparkline' color="blue" />
+      </Sparklines>
+      <BsHeart onClick={console.log('fortnite')} />
+      <CalcModal coinData={coinData} />
+    </HomeCoinsDiv>
+  )
+};
 
-      </HomeCoinsDiv>  
-    )
-}
-export default CoinStatsCard
+export default CoinStatsCard;

@@ -6,6 +6,7 @@ import { Sparklines, SparklinesLine } from "react-sparklines";
 import { MainHomeDiv, HomeCoinsDiv } from "../../../styledComponents/index.style";
 import { BsHeart } from 'react-icons/bs'
 
+
 import ClipLoader from "react-spinners/ClipLoader";
 const HomeFunc = () => {
     const [coinStats, setCoinStats] = useState([])
