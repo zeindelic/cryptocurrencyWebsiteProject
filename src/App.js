@@ -6,19 +6,24 @@ import AboutUsFunc from './Components/pages/AboutUs/aboutUs';
 import ExchangesFunc from './Components/pages/Exchanges/Exchanges';
 import HomeFunc from './Components/pages/Home/Home';
 import UserFunc from './Components/pages/User/User';
+import CryptoDetailsPage from './Components/pages/CryptoDetails/cryptod';
+
+
 function App() {
   return (
     <div>
-      <Header/>
+      <Header />
       <Routes>
-      <Route path='/' element={<HomeFunc/>} />
-      <Route path='/coins' element={<CoinsFunc/>} />
-      <Route path='/about_us' element={<AboutUsFunc/>} />
-      <Route path='/exchanges' element={<ExchangesFunc/>} />
-      <Route path='/user' element={<UserFunc/>} />
+        <Route path='/' element={<HomeFunc />} />
+        <Route path='/coins' element={<CoinsFunc />} />
+        <Route path='/about_us' element={<AboutUsFunc />} />
+        <Route path='/exchanges' element={<ExchangesFunc />} />
+        <Route path="/coins/:uuid/*" element={<CryptoDetailsPage />} />
+        <Route path='/user' element={<UserFunc />} />
       </Routes>
     </div>
   );
 }
 
 export default App;
+
