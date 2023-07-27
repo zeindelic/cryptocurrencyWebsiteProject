@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { Sparklines, SparklinesLine } from 'react-sparklines';
 import { useFavorites } from '../FavoritesContext';
+import { Link } from "react-router-dom";
+
 
 const CoinsFunc = () => {
   const [coinNames, setCoinNames] = useState([]);
@@ -92,7 +94,9 @@ const CoinsFunc = () => {
           <div className="asmir2" key={index}>
             <p className="p">{coin.rank}</p>
             <div className="data">
+            <Link to={`/coins/${coin.uuid}`}> 
               <img className="ikonica" src={coin.iconUrl} alt={coin.name} />
+              </Link>
             </div>
             <div className="data"><p>{coin.name}</p></div>
             <div className="data">{parseFloat(coin.price).toFixed(3)}$</div>
