@@ -81,7 +81,7 @@ const CoinsFunc = () => {
         <input className="input_coins" placeholder="Search cryptos" value={searchTerm} onChange={handleSearch} />
       </div>
 
-      <div className="asmir">
+      <div className="asmirr">
         <div className="names">
           <p className="p">Rank</p>
           <p className="data1"></p>
@@ -89,6 +89,7 @@ const CoinsFunc = () => {
           <p className="data1">Price</p>
           <p className="data1">24hVolume</p>
           <p className="data1">MarketCap</p>
+          <p className="data1"></p>
           <p className="data1"></p>
         </div>
 
@@ -113,6 +114,7 @@ const CoinsFunc = () => {
                 <SparklinesLine className="sparkline" color="blue" />
               </Sparklines>
             </div>
+            <div className="data">
             <button
               className="coin_button_favorite"
               onClick={() => handleFavoriteClick(coin)}
@@ -120,6 +122,7 @@ const CoinsFunc = () => {
             >
               <FontAwesomeIcon icon={faHeart} style={{ height: "20px" }} />
             </button>
+            </div>
           </div>
         ))}
 
@@ -133,7 +136,6 @@ const CoinsFunc = () => {
         </Stack>
       </div>
     </div>
-    <Footer/>
    </>
   );
 };
