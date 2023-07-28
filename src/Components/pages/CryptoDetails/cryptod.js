@@ -40,7 +40,7 @@ const CryptoDetailsPage = () => {
       setLoading(false);
     })
     .catch((error) => {
-    
+
       console.error('Error fetching data:', error);
       setLoading(false);
     });
@@ -77,7 +77,7 @@ const CryptoDetailsPage = () => {
               <p className="hours">
                 24h: <span className="color">{coin.change} %</span>
               </p>
-              <span className="font-bold">
+              <span >
                 High <span className="high">${Number(coin?.supply?.circulating).toLocaleString()}</span>
               </span>
             </div>
@@ -89,7 +89,7 @@ const CryptoDetailsPage = () => {
             </div>
             <div className="value-supply-container">
   <div className="value-statistics-info">
-    <h1 style={{ textAlign: "center", fontWeight: "normal" }}>Value statistic</h1>
+    <h1 style={{ textAlign: "center", fontWeight: "normal", fontSize: "30px"}}>Value statistic</h1>
     <p style={{ marginLeft: "60px" }}>
       An overview showing the statistics of {coin.name}, such as the base and quote currency, the rank, and trading volume.
     </p>
@@ -148,7 +148,7 @@ const CryptoDetailsPage = () => {
                 <div className="supply-information">
                   <div style={{ display: 'flex', alignItems: 'center' }}>
                     <div>
-                      <h1 style={{ marginLeft: "10px", fontWeight: "normal", textAlign: "center" }}>Supply information</h1>
+                      <h1 style={{ marginLeft: "10px", fontWeight: "normal", textAlign: "center", fontSize: "30px"}}>Supply information</h1>
                       <p style={{ marginLeft: "80px" }}>View the total and circulating supply of {coin.name}, including details on how the supplies are calculated.</p>
                     </div>
                   </div>
@@ -172,19 +172,19 @@ const CryptoDetailsPage = () => {
               )}
 
 
-             
+
             </div>
-         
+
 
             <div className="links-whatis-container">
             <div className="what-is">
               <p style={{fontWeight: "bold", marginLeft: "350px", marginBottom: "0px", marginTop: "35px"}}>What is {coin?.name}</p>
               <div className='border'>
-                <p className='descr'>{coin.description}</p>
+                <p className='descr' style={{padding: "12px"}}>{coin.description}</p>
               </div>
             </div>
 
-           
+
             <div className="links-info">
             <h4 style={{textAlign: "left", marginLeft: "45px", marginTop: "50px", marginBottom: "0px"}}>Links</h4>
               <div className="info-row">
@@ -207,7 +207,7 @@ const CryptoDetailsPage = () => {
                     color="primary"
                     style={{ marginLeft: "50px", marginTop: "0px" }}
                   />
-               
+
                 <div className="info-label">bitcointalk</div>
                 <div className="info-value2"> <a href={`https://bitcointalk.org`}>bitcointalk.org</a></div>
               </div>
@@ -241,7 +241,7 @@ const CryptoDetailsPage = () => {
                 <div className="info-value2"><a href={`https://t.me/${coin.name}_Magazine`}>{coin.name}</a></div>
               </div>
               <div className="line5"></div>
-          
+
               <div className="info-row">
               <EventNoteIcon fontSize="large" color="primary" style={{ marginLeft: "50px", marginTop: "0px" }}/>
                 <div className="info-label">whitepaper</div>
