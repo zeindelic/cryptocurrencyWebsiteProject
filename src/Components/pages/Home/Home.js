@@ -2,7 +2,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import './asmir.css'
-import CoinStatsCard from "../../coinStatCard/coinStatCard";
 import { MainHomeDiv, HomeCoinsDiv,Nameloc } from "../../../styledComponents/index.style";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faSearch } from "@fortawesome/free-solid-svg-icons";
