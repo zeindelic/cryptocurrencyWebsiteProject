@@ -5,6 +5,7 @@ import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import './calcmodal.css'
 
 import CalculateIcon from "@mui/icons-material/Calculate";
 
@@ -36,7 +37,7 @@ export default function CalcModal(props) {
   return (
     <div>
       <Button onClick={handleOpen}>
-        <CalculateIcon />
+        <CalculateIcon style={{width:'30px'}} />
       </Button>
 
       <Modal
@@ -68,17 +69,17 @@ export default function CalcModal(props) {
               </div>
             </Typography>
             <hr />
-            <div className="flex justify-start items-center">
+            <div className="calcDiv">
               <input
                 type={"number"}
-                className="p-5    text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 w-24 h-5 mt-3 z-40"
+                className="p-5 ml-0  text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 w-24 h-5 mt-3 z-40"
                 onChange={(e) => onChange(e.target.value)}
                 value={coinValue}
               />
 
               <h2 className="ml-5 mr-2  text-xl">x</h2>
               <input
-                className="w-36 p-5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-5 mt-3 z-40"
+                className="w-36 p-5 text-sm text-gray-90 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-5 mt-3 z-40"
                 readOnly
                 value={`$${Number(coinData?.price).toLocaleString()}`}
               />

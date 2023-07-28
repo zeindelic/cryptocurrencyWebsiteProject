@@ -22,10 +22,10 @@ const Footer = () => {
                 <li>
                   <a
                     className="text-gray-900 transition hover:text-gray-900/75"
-                    href="/about"
+                    href="/about_us"
                     rel="noreferrer"
                   >
-                    Users
+                    About Us
                   </a>
                 </li>
 

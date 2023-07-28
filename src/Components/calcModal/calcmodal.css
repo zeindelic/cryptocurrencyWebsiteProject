@@ -1,0 +1,10 @@
+.calcDiv{
+display: flex;
+align-items: center;
+width: 100%;
+
+}
+.calculateIcon{
+    font-size: 20px;
+    width: 100px;
+}

@@ -60,6 +60,8 @@ const HomeFunc = () => {
         <input 
         type="text"
         value={value} 
+        placeholder="search coins"
+        style={{border:'solid lightgray 2px',borderRadius:'7px'}}
         onChange={e => setValue(e.target.value)} 
       />
         <HomeCoinsDiv>

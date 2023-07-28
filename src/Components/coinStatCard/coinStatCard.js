@@ -35,7 +35,7 @@ const CoinStatsCard = ({
       <button
               className="coin_button_favorite"
             >
-              <FontAwesomeIcon icon={faHeart} style={{ height: "20px" }} />
+              <FontAwesomeIcon icon={faHeart} style={{ width: "100px" }} />
             </button>
       
       <CalcModal coinData={coinData} />
