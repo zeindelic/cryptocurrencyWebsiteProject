@@ -1,0 +1,84 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 90px; /* Smanjenje margine da bi elementi bili bliže vrhu stranice */
+  }
+  
+  /* Izmene za .asmir */
+  .asmir {
+    width: 1200px; /* Dodali širinu da sadržaj bude centriran */
+    background-color: #FFFFFF;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 50px;
+    border-radius: 10px; /* Dodali zaobljene ivice */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Dodali senku */
+    padding: 20px; /* Dodali unutrašnji padding */
+  }
+  
+  .names {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Popunjava celu širinu roditeljskog elementa */
+    height: 65px;
+    font-weight: bold;
+  }
+  
+  /* Izmene za .asmir2 */
+  .asmir2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Popunjava celu širinu roditeljskog elementa */
+    height: 65px;
+    border-bottom: 2px solid #E3E8FF;
+  }
+  
+  /* Izmene za .data i .data1 */
+  .data, .data2, .p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%; /* Popunjava celu visinu roditeljskog elementa */
+    width: 150px;
+  }
+  
+  /* Izmene za .ikonica */
+  .ikonica {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%; /* Pretvara sliku u kružni oblik */
+  }
+  
+  /* Izmene za .input_coins */
+  .input_coins {
+    height: 31px;
+    width: 205px;
+    border-radius: 10px;
+    background-color: #374151;
+    text-align: center;
+    margin-top: 10px;
+    color: white;
+    border: none;
+    outline: none; /* Dodali da se ne prikazuje obrub kada je element fokusiran */
+    padding: 0 10px; /* Dodali unutrašnji padding */
+  }
+  
+  .input_coins::placeholder {
+    color: #9CA3AF;
+  }
+  
+  /* Izmene za .coin_button_favorite */
+  .coin_button_favorite {
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    padding: 5px; /* Dodali unutrašnji padding */
+  }
+  

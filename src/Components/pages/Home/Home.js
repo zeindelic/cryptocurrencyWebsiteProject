@@ -1,18 +1,26 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import './asmir.css'
 import CoinStatsCard from "../../coinStatCard/coinStatCard";
-import { Sparklines, SparklinesLine } from "react-sparklines";
 import { MainHomeDiv, HomeCoinsDiv,Nameloc } from "../../../styledComponents/index.style";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { Sparklines, SparklinesLine } from 'react-sparklines';
+import { useFavorites } from '../FavoritesContext';
+import { Link } from "react-router-dom";
 import { BsHeart } from 'react-icons/bs'
 
 
 import ClipLoader from "react-spinners/ClipLoader";
+import CalcModal from "../../calcModal/calcmodal";
 const HomeFunc = () => {
     const [coinStats, setCoinStats] = useState([])
     const [loading, setLoading] = useState(true);
     const [value, setValue] = useState('')
-
+    const [coinNames, setCoinNames] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [searchTerm, setSearchTerm] = useState("");
     const options = {
         method: 'GET',
         url: 'https://coinranking1.p.rapidapi.com/coins',
@@ -45,6 +53,22 @@ const HomeFunc = () => {
       }, []);
       console.log(coinStats);
       console.log(value);
+
+      const { favorites, addFavorite, removeFavorite, isFavorite } = useFavorites();
+
+
+      const handleSearch = (event) => {
+        setSearchTerm(event.target.value);
+        setCurrentPage(1);
+      };
+
+      const handleFavoriteClick = (coin) => {
+        if (isFavorite(coin)) {
+          removeFavorite(coin);
+        } else {
+          addFavorite(coin);
+        }
+      };
     return(
         <MainHomeDiv>
             {loading ? (
@@ -66,6 +90,8 @@ const HomeFunc = () => {
       />
         <HomeCoinsDiv>
         <h2>Rank</h2>
+        <h1></h1>
+        <h1></h1>
         <Nameloc>name</Nameloc>
         <h2>price</h2>
         <h2>24hVolume</h2>
@@ -84,17 +110,38 @@ const HomeFunc = () => {
             
             
         })
-        .slice(0, 10).map((el) => (
-            <CoinStatsCard 
-            coinRank={el.rank}
-            coinImage={el.iconUrl}
-            coinName={el.name}
-            coinPrice={el.price}
-            coin24hVolume={el['24hVolume']}
-            coinMarketCap={el.marketCap}
-            sparkline={el.sparkline.map((el) => el)}
-            coinData={el}
-            />
+        .slice(0, 10).map((coin, index) => (
+          <div className="asmir2" key={index}>
+          <p className="p">{coin.rank}</p>
+          <div className="data">
+          <Link to={`/coins/${coin.uuid}`}> 
+            <img className="ikonica" src={coin.iconUrl} alt={coin.name} />
+          </Link>
+          </div>
+          <div className="data"><p>{coin.name}</p></div>
+          <div className="data">{parseFloat(coin.price).toFixed(3)}$</div>
+          <div className="data">
+            <p>{parseFloat(coin["24hVolume"].replace("$", "").replace(/,/g, "")).toLocaleString()}$</p>
+          </div>
+          <div className="data">
+            {parseFloat(coin.marketCap.replace("$", "").replace(/,/g, "")).toLocaleString()}$
+          </div>
+          <div className="data">
+            <Sparklines data={coin.sparkline.map((el) => parseFloat(el))}>
+              <SparklinesLine className="sparkline" color="blue" />
+            </Sparklines>
+          </div>
+          <div className="data">
+          <button
+            className="coin_button_favorite"
+            onClick={() => handleFavoriteClick(coin)}
+            style={{ color: isFavorite(coin) ? "#ff0000" : "#9ca3af" }}
+          >
+            <FontAwesomeIcon icon={faHeart} style={{ height: "20px" }} />
+          </button>
+          <CalcModal coinData={coin}/>
+          </div>
+        </div>
        ))
     
     

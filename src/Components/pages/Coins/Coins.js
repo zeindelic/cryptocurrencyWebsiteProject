@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { Sparklines, SparklinesLine } from 'react-sparklines';
 import { useFavorites } from '../FavoritesContext';
+import CalcModal from "../../calcModal/calcmodal";
 import { Link } from "react-router-dom";
 import Footer from "../../footer/footer";
 
@@ -123,6 +124,9 @@ const CoinsFunc = () => {
               <FontAwesomeIcon icon={faHeart} style={{ height: "20px" }} />
             </button>
             </div>
+            <div className="data">  
+                    <CalcModal coinData={coin}/>
+</div>
           </div>
         ))}
 
