@@ -2,6 +2,8 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { BiSolidUserRectangle } from 'react-icons/bi';
 import { HeaderContainer, LogoDiv, PLogo, NavBarUl, NavBarli, NavBar, UserDiv } from "../../styledComponents/index.style";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart, faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
   return (
@@ -37,6 +39,14 @@ const Header = () => {
             style={{ textDecoration: "none", color: "#6E7DAB" }}
           >
            About Us
+          </NavLink>
+          </NavBarli>
+          <NavBarli>
+          <NavLink
+            to={"/favorite"}
+            style={{ textDecoration: "none", color: "#6E7DAB" }}
+          >
+           <FontAwesomeIcon icon={faHeart} style={{ height: "20px" }} />
           </NavLink>
           </NavBarli>
         </NavBarUl>

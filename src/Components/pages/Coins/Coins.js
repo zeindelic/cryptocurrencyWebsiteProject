@@ -1,20 +1,19 @@
+// Coins.js
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import "./asmir.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart, faSearch } from "@fortawesome/free-solid-svg-icons";
-import { Sparklines, SparklinesLine } from 'react-sparklines';
-import { useFavorites } from '../FavoritesContext';
-import { Link } from "react-router-dom";
-
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { Sparklines, SparklinesLine } from "react-sparklines";
+import { useFavorites } from "../FavoritesContext";
 
 const CoinsFunc = () => {
   const [coinNames, setCoinNames] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
-  const coinsPerPage = 10;
+  const coinsPerPage = 20;
 
   useEffect(() => {
     fetchCoinsData();
@@ -41,7 +40,8 @@ const CoinsFunc = () => {
 
     try {
       const response = await axios.request(options);
-      setCoinNames(response.data.data.coins.map((coin) => coin));
+      const coinsData = response.data.data.coins.map((coin) => coin);
+      setCoinNames(coinsData);
     } catch (error) {
       console.error(error);
     }
@@ -61,6 +61,7 @@ const CoinsFunc = () => {
     setCurrentPage(1);
   };
 
+  // Filtriramo kripto valute prema unetom pojmu za pretragu
   const filteredCoins = coinNames.filter((coin) =>
     coin.name.toLowerCase().startsWith(searchTerm.toLowerCase())
   );
@@ -76,17 +77,22 @@ const CoinsFunc = () => {
   return (
     <div className="container">
       <div>
-        <input className="input_coins" placeholder="Search cryptos" value={searchTerm} onChange={handleSearch} />
+        <input
+          className="input_coins"
+          placeholder="Pretraži kripto valute"
+          value={searchTerm}
+          onChange={handleSearch}
+        />
       </div>
 
       <div className="asmir">
         <div className="names">
-          <p className="p">Rank</p>
+          <p className="p">Rang</p>
           <p className="data1"></p>
-          <p className="data1">Names</p>
-          <p className="data1">Price</p>
-          <p className="data1">24hVolume</p>
-          <p className="data1">MarketCap</p>
+          <p className="data1">Naziv</p>
+          <p className="data1">Cena</p>
+          <p className="data1">Zapremina u 24h</p>
+          <p className="data1">Market Cap</p>
           <p className="data1"></p>
         </div>
 
@@ -94,12 +100,12 @@ const CoinsFunc = () => {
           <div className="asmir2" key={index}>
             <p className="p">{coin.rank}</p>
             <div className="data">
-            <Link to={`/coins/${coin.uuid}`}> 
               <img className="ikonica" src={coin.iconUrl} alt={coin.name} />
-              </Link>
             </div>
-            <div className="data"><p>{coin.name}</p></div>
-            <div className="data">{parseFloat(coin.price).toFixed(3)}$</div>
+            <div className="data">
+              <p>{coin.name}</p>
+            </div>
+            <div className="data">{parseFloat(coin.price).toFixed(6)}$</div>
             <div className="data">
               <p>{parseFloat(coin["24hVolume"].replace("$", "").replace(/,/g, "")).toLocaleString()}$</p>
             </div>
