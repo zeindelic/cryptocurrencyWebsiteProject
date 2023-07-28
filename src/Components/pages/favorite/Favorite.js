@@ -14,13 +14,13 @@ function FavoriteFunc() {
         <div className="asmirr">
           <div className="names">
             <p className="p">Rank</p>
-            <p className="data1"></p>
-            <p className="data1">Names</p>
-            <p className="data1">Price</p>
-            <p className="data1">24hVolume</p>
-            <p className="data1">MarketCap</p>
-            <p className="data1"></p>
-            <p className="data1"></p>
+            <p className="data2"></p>
+            <p className="data2">Names</p>
+            <p className="data2">Price</p>
+            <p className="data2">24hVolume</p>
+            <p className="data2">MarketCap</p>
+            <p className="data2"></p>
+            <p className="data2"></p>
           </div>
 
           {favorites.length === 0 ? (

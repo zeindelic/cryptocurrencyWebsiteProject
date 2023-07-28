@@ -40,7 +40,7 @@
   }
   
   /* Izmene za .data i .data1 */
-  .data, .data1, .p {
+  .data, .data2, .p {
     display: flex;
     justify-content: center;
     align-items: center;
