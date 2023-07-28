@@ -50,13 +50,12 @@ const Footer = () => {
                 </li>
               </ul>
             </nav>
-
             
           </div>
         </div>
       </footer>
     </div>
-  );
+   );
 };
 
 export default Footer;
