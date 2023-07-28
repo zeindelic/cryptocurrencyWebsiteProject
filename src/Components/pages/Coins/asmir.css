@@ -4,7 +4,9 @@
     align-items: center;
     flex-direction: column;
     gap: 40px;
-    margin-bottom: 300px;
+    margin-top: 50px;
+    margin-bottom: 180px;
+
 }
 
 .asmir{
@@ -97,8 +99,3 @@
     cursor: 
     pointer;
 }
-
-
-
-
-
