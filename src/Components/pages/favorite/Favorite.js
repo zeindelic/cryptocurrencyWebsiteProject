@@ -3,6 +3,7 @@ import { useFavorites } from '../FavoritesContext';
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import CalcModal from "../../calcModal/calcmodal";
 import { Sparklines, SparklinesLine } from 'react-sparklines';
 
 function FavoriteFunc() {
@@ -58,6 +59,10 @@ function FavoriteFunc() {
                       >
                         <FontAwesomeIcon icon={faHeart} style={{ height: "20px" }} />
                       </button>
+
+                    </div>
+                    <div className="data">
+                      <CalcModal coinData={favoriteCoin}/>
                     </div>
                   </div>
                 );
