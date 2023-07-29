@@ -16,7 +16,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 90px;
+  margin-top: 100px;
 `;
 
 const AsmiraWrapper = styled.div`
@@ -30,6 +30,7 @@ const AsmiraWrapper = styled.div`
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
+  margin-top: 20px;
 `;
 
 const Namesa = styled.div`
@@ -166,6 +167,7 @@ const CoinsFunc = () => {
           <Dataa>Price</Dataa>
           <Dataa>24hVolume</Dataa>
           <Dataa>MarketCap</Dataa>
+          <Dataa></Dataa>
           <Dataa></Dataa>
           <Dataa></Dataa>
         </Namesa>
